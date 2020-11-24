@@ -16,6 +16,10 @@ I'm keeping the installation files that I've installed in my unit in this reposi
 
 See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-upgrade-the-bios).
 
+| Date | Version | File | Checksum |
+|------|---------|------|----------|
+| 2020-08-31 | SD-BS-CJ41G-M-101-G | [SD-BS-CJ41G-M-101-G.zip](SD-BS-CJ41G-M-101-G.zip) | eb932b69435d26a5b076c485c90e4289a697681ac092c18e85c86804e3fe4206 |
+
 ## EC (Embedded Controller)
 
 See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-update-the-embedded-controller).
