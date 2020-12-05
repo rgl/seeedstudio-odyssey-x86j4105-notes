@@ -2,7 +2,7 @@
 
 This board has several installable firmwares:
 
-* BIOS
+* BIOS/UEFI
 * EC (Embedded Controller)
 * ATSAMD21G18 (Seeeduino Zero Arduino Coprocessor)
 
@@ -12,7 +12,7 @@ Their versions appear in the BIOS main page:
 
 I'm keeping the installation files that I've installed in my unit in this repository.
 
-## BIOS
+## BIOS/UEFI
 
 See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-upgrade-the-bios).
 
