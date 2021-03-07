@@ -18,6 +18,7 @@ See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4
 
 | Date | Version | File | Checksum |
 |------|---------|------|----------|
+| 2020-12-31 | SD-BS-CJ41G-M-101-K | [SD-BS-CJ41G-M-101-K.zip](SD-BS-CJ41G-M-101-K.zip) | 7208d39c4f77a4837a0a1072dce45c7bc8feba28597522ea036778a9c09aa61a |
 | 2020-08-31 | SD-BS-CJ41G-M-101-G | [SD-BS-CJ41G-M-101-G.zip](SD-BS-CJ41G-M-101-G.zip) | eb932b69435d26a5b076c485c90e4289a697681ac092c18e85c86804e3fe4206 |
 
 ## EC (Embedded Controller)
@@ -26,4 +27,5 @@ See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4
 
 | Date | Version | File | Checksum |
 |------|---------|------|----------|
+| 2021-02-02 | 02.09.06 | [SD-EC-CJ41G-M-101-J.zip](SD-EC-CJ41G-M-101-J.zip) | 4ab099f45439f8f6ec14e25ae50a64f878eed4c998e39000e17f2047df6bbb83 |
 | 2020-08-31 | 02.05.03 | [SD-EC-CJ41G-M-101-C.zip](SD-EC-CJ41G-M-101-C.zip) | 4b7ed82357eb608c3ec00f6f5f0358a35e63b327ae33855eb5e7608814f8df6a |

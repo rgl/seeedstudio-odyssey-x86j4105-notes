@@ -98,8 +98,6 @@ Boot0002* UEFI: Built-in EFI Shell	VenMedia(5023b95c-db26-429b-a648-bd47664c8012
 
 ### UEFI Reboot To Firmware
 
-**NB this is not yet working; see https://forum.seeedstudio.com/t/how-to-reboot-to-the-bios-uefi-firmware-setup-screen/255556**
-
 The system can reboot to the firmware using:
 
 ```bash
@@ -109,8 +107,9 @@ systemctl reboot --firmware-setup
 For more details see:
 
 * https://www.freedesktop.org/software/systemd/man/systemctl.html#--firmware-setup
-* [efi_reboot_to_firmware_supported](https://github.com/systemd/systemd/blob/09541e49ebd17b41482e447dd8194942f39788c0/src/shared/efivars.c#L112-L130)
-* [get_os_indications](https://github.com/systemd/systemd/blob/09541e49ebd17b41482e447dd8194942f39788c0/src/shared/efivars.c#L132-L161)
+* [efi_reboot_to_firmware_supported](https://github.com/systemd/systemd/blob/e7a8f6b66fa3efd298120ef5d6c972d7b4df51c7/src/shared/efi-loader.c#L70-L103)
+  * [EFI_OS_INDICATIONS_BOOT_TO_FW_UI](https://github.com/systemd/systemd/blob/e7a8f6b66fa3efd298120ef5d6c972d7b4df51c7/src/shared/efi-loader.c#L31)
+* [get_os_indications](https://github.com/systemd/systemd/blob/e7a8f6b66fa3efd298120ef5d6c972d7b4df51c7/src/shared/efi-loader.c#L105-L158)
 
 SystemD will manipulate these UEFI variables:
 
@@ -126,7 +125,7 @@ Attributes:
 	Boot Service Access
 	Runtime Service Access
 Value:
-00000000  01 00 00 00 00 00 00 00                           |........        |
+00000000  03 00 00 00 00 00 00 00                           |........        |
 ```
 
 ```
