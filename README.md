@@ -16,7 +16,21 @@ after a BIOS Restore Defaults).
 
 See https://forum.seeedstudio.com/t/how-to-completely-turn-off-the-network-interfaces-while-odyssey-x86j4105-is-turned-off/255557
 
-### UEFI Boot Loader
+## Poweron (using Wake-On-LAN)
+
+Make sure you enable the Wake-On-LAN feature in the `Chipset` page of the firmware:
+
+<a href="firmware-wake-on-lan.jpeg"><img height="200px" src="firmware-wake-on-lan.jpeg"></a>
+
+Then you can send a [Wake-On-LAN "Magic Packet"](https://en.wikipedia.org/wiki/Wake-on-LAN#Magic_packet)
+from a local network interface to one of the odyssey network
+interfaces mac addresses, e.g.:
+
+```bash
+sudo etherwake -i enp3s0 00:e0:4c:01:93:a8
+```
+
+## UEFI Boot Loader
 
 Since the board ships with Windows 10 pre-installed, the UEFI bootloader
 retains the `Windows Boot Manager` entry as seen by:
