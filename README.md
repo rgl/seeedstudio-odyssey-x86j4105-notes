@@ -62,6 +62,12 @@ efibootmgr --verbose --bootnum 0002 --delete-bootnum
 efibootmgr --verbose --bootnum 0005 --delete-bootnum
 ```
 
+Delete the boot order (`grub-install` will re-create it):
+
+```bash
+efibootmgr --verbose --delete-bootorder
+```
+
 Then reinstall the `ubuntu` boot entry with:
 
 ```bash
