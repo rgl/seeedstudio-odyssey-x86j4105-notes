@@ -159,6 +159,10 @@ Value:
 00000000  00 00 00 00 00 00 00 00                           |........        |
 ```
 
+## Network Boot
+
+See [Network Boot](network-boot/README.md).
+
 ## Ubuntu
 
 Ubuntu 20.10 works out of the box.
