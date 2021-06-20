@@ -2,10 +2,10 @@
 
 This board supports two types of network booting protocols:
 
-1. UEFI HTTP
-2. Legacy PXE
+1. [UEFI HTTP PXE](#uefi-http-pxe)
+2. [Legacy BIOS TFTP PXE](#legacy-bios-tftp-pxe)
 
-### UEFI HTTP
+### UEFI HTTP PXE
 
 Follow the steps:
 
@@ -126,7 +126,7 @@ Follow the steps:
 			Option End: 255
 	```
 
-### Legacy PXE
+### Legacy BIOS TFTP PXE
 
 Follow the steps:
 
