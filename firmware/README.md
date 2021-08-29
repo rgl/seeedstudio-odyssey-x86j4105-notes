@@ -18,6 +18,7 @@ See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4
 
 | Date | Version | File | Checksum |
 |------|---------|------|----------|
+| 2021-08-16 | SD-BS-CJ41G-300-101-H | [SD-BS-CJ41G-300-101-H.zip](SD-BS-CJ41G-300-101-H.zip) | 9ea30178b4ef8453c6f24f037b4b3352ac6d214c7c22f94985428bcb23a178c2 |
 | 2021-04-16 | SD-BS-CJ41G-300-101-F | [SD-BS-CJ41G-300-101-F.zip](SD-BS-CJ41G-300-101-F.zip) | 53711dbf9fb6abe564be1c7a870840f8b87caa42239448869d87c08c1bdf0ec5 |
 | 2020-12-31 | SD-BS-CJ41G-M-101-K | [SD-BS-CJ41G-M-101-K.zip](SD-BS-CJ41G-M-101-K.zip) | 7208d39c4f77a4837a0a1072dce45c7bc8feba28597522ea036778a9c09aa61a |
 | 2020-08-31 | SD-BS-CJ41G-M-101-G | [SD-BS-CJ41G-M-101-G.zip](SD-BS-CJ41G-M-101-G.zip) | eb932b69435d26a5b076c485c90e4289a697681ac092c18e85c86804e3fe4206 |
@@ -28,6 +29,7 @@ See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4
 
 | Date | Version | File | Checksum |
 |------|---------|------|----------|
+| 2021-08-16 | 02.0B.09 | [SD-EC-CJ41G-M-101-O.zip](SD-EC-CJ41G-M-101-O.zip) | a08605b8b76bda6a50b64e64c4a9b256297d393f7139ffb2525cc93b28556f13 |
 | 2021-04-16 | 02.09.09 | [SD-EC-CJ41G-M-101-M.zip](SD-EC-CJ41G-M-101-M.zip) | db6e1f77d6eb4b9a79ddaf6e7a55052b7be6e63b8339c7b948ff111e5c9ca8ad |
 | 2021-02-02 | 02.09.06 | [SD-EC-CJ41G-M-101-J.zip](SD-EC-CJ41G-M-101-J.zip) | 4ab099f45439f8f6ec14e25ae50a64f878eed4c998e39000e17f2047df6bbb83 |
 | 2020-08-31 | 02.05.03 | [SD-EC-CJ41G-M-101-C.zip](SD-EC-CJ41G-M-101-C.zip) | 4b7ed82357eb608c3ec00f6f5f0358a35e63b327ae33855eb5e7608814f8df6a |
@@ -43,7 +45,7 @@ sudo bash
 # find the pen device.
 lsblk -o KNAME,SIZE,TRAN,FSTYPE,UUID,LABEL,MODEL,SERIAL
 # lsblk should output all the plugged block devices, in my case, this is the device that I'm interested in:
-#   sde     14,5G usb                                                                STORAGE DEVICE   000000078
+#   sdg     14,5G usb                                                                STORAGE DEVICE   000000078
 #   sdg1      91M        vfat     9349-0653                            ODYSSEYFW                                 
 
 # set the pen target device and mount point.
@@ -71,8 +73,8 @@ mkfs -t vfat -n ODYSSEYFW ${target_device}1
 # install the firmware in the targe device.
 mkdir -p $target
 mount ${target_device}1 $target
-unzip SD-BS-CJ41G-300-101-F.zip -d $target
-unzip SD-EC-CJ41G-M-101-M.zip -d $target
+unzip SD-BS-CJ41G-300-101-H.zip -d $target
+unzip SD-EC-CJ41G-M-101-O.zip -d $target
 
 # check the results.
 find $target
