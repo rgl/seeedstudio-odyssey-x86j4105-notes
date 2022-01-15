@@ -29,6 +29,7 @@ See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4
 
 | Date | Version | File | Checksum |
 |------|---------|------|----------|
+| 2021-10-12 | 02.0D.09 | [SD-EC-CJ41G-M-101-Q.zip](SD-EC-CJ41G-M-101-Q.zip) | 6009005ff61a64a580f0862343ced1e1e8b4de8625e326510582063d6e20bce4 |
 | 2021-08-16 | 02.0B.09 | [SD-EC-CJ41G-M-101-O.zip](SD-EC-CJ41G-M-101-O.zip) | a08605b8b76bda6a50b64e64c4a9b256297d393f7139ffb2525cc93b28556f13 |
 | 2021-04-16 | 02.09.09 | [SD-EC-CJ41G-M-101-M.zip](SD-EC-CJ41G-M-101-M.zip) | db6e1f77d6eb4b9a79ddaf6e7a55052b7be6e63b8339c7b948ff111e5c9ca8ad |
 | 2021-02-02 | 02.09.06 | [SD-EC-CJ41G-M-101-J.zip](SD-EC-CJ41G-M-101-J.zip) | 4ab099f45439f8f6ec14e25ae50a64f878eed4c998e39000e17f2047df6bbb83 |
@@ -74,7 +75,7 @@ mkfs -t vfat -n ODYSSEYFW ${target_device}1
 mkdir -p $target
 mount ${target_device}1 $target
 unzip SD-BS-CJ41G-300-101-H.zip -d $target
-unzip SD-EC-CJ41G-M-101-O.zip -d $target
+unzip SD-EC-CJ41G-M-101-Q.zip -d $target
 
 # check the results.
 find $target
