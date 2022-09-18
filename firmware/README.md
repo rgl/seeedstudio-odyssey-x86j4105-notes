@@ -14,21 +14,23 @@ I'm keeping the installation files that I've installed in my unit in this reposi
 
 ## BIOS/UEFI
 
-See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-upgrade-the-bios).
+See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Updating-Firmware/#how-to-upgrade-the-bios).
 
-| Date | Version | File | Checksum |
-|------|---------|------|----------|
+| Date       | Version               | File                                                   | Checksum                                                         |
+|------------|-----------------------|--------------------------------------------------------|------------------------------------------------------------------|
+| 2022-07-26 | SD-BS-CJ41G-300-101-K | [SD-BS-CJ41G-300-101-K.zip](SD-BS-CJ41G-300-101-K.zip) | 74b098257cc3864ff58602dd00e8111a520b327e9a3ac381e731a210244e6d54 |
 | 2021-08-16 | SD-BS-CJ41G-300-101-H | [SD-BS-CJ41G-300-101-H.zip](SD-BS-CJ41G-300-101-H.zip) | 9ea30178b4ef8453c6f24f037b4b3352ac6d214c7c22f94985428bcb23a178c2 |
 | 2021-04-16 | SD-BS-CJ41G-300-101-F | [SD-BS-CJ41G-300-101-F.zip](SD-BS-CJ41G-300-101-F.zip) | 53711dbf9fb6abe564be1c7a870840f8b87caa42239448869d87c08c1bdf0ec5 |
-| 2020-12-31 | SD-BS-CJ41G-M-101-K | [SD-BS-CJ41G-M-101-K.zip](SD-BS-CJ41G-M-101-K.zip) | 7208d39c4f77a4837a0a1072dce45c7bc8feba28597522ea036778a9c09aa61a |
-| 2020-08-31 | SD-BS-CJ41G-M-101-G | [SD-BS-CJ41G-M-101-G.zip](SD-BS-CJ41G-M-101-G.zip) | eb932b69435d26a5b076c485c90e4289a697681ac092c18e85c86804e3fe4206 |
+| 2020-12-31 | SD-BS-CJ41G-M-101-K   | [SD-BS-CJ41G-M-101-K.zip](SD-BS-CJ41G-M-101-K.zip)     | 7208d39c4f77a4837a0a1072dce45c7bc8feba28597522ea036778a9c09aa61a |
+| 2020-08-31 | SD-BS-CJ41G-M-101-G   | [SD-BS-CJ41G-M-101-G.zip](SD-BS-CJ41G-M-101-G.zip)     | eb932b69435d26a5b076c485c90e4289a697681ac092c18e85c86804e3fe4206 |
 
 ## EC (Embedded Controller)
 
-See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-update-the-embedded-controller).
+See the [vendor upgrade instructions](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Updating-Firmware/#how-to-update-the-embedded-controller).
 
-| Date | Version | File | Checksum |
-|------|---------|------|----------|
+| Date       | Version  | File                                               | Checksum                                                         |
+|------------|----------|----------------------------------------------------|------------------------------------------------------------------|
+| 2022-07-26 | 02.0E.0B | [SD-EC-CJ41G-M-101-R.zip](SD-EC-CJ41G-M-101-R.zip) | 260f4599e167f818f5d3091868dd24886796bd67d928ebf6677ea5b4bebd5f4c |
 | 2021-10-12 | 02.0D.09 | [SD-EC-CJ41G-M-101-Q.zip](SD-EC-CJ41G-M-101-Q.zip) | 6009005ff61a64a580f0862343ced1e1e8b4de8625e326510582063d6e20bce4 |
 | 2021-08-16 | 02.0B.09 | [SD-EC-CJ41G-M-101-O.zip](SD-EC-CJ41G-M-101-O.zip) | a08605b8b76bda6a50b64e64c4a9b256297d393f7139ffb2525cc93b28556f13 |
 | 2021-04-16 | 02.09.09 | [SD-EC-CJ41G-M-101-M.zip](SD-EC-CJ41G-M-101-M.zip) | db6e1f77d6eb4b9a79ddaf6e7a55052b7be6e63b8339c7b948ff111e5c9ca8ad |
@@ -41,13 +43,13 @@ You can create a firmware update usb flash device as:
 
 ```bash
 # switch to root.
-sudo bash
+sudo bash -l
 
 # find the pen device.
 lsblk -o KNAME,SIZE,TRAN,FSTYPE,UUID,LABEL,MODEL,SERIAL
 # lsblk should output all the plugged block devices, in my case, this is the device that I'm interested in:
 #   sdg     14,5G usb                                                                STORAGE DEVICE   000000078
-#   sdg1      91M        vfat     9349-0653                            ODYSSEYFW                                 
+#   sdg1      91M        vfat     9349-0653                            ODYSSEYFW
 
 # set the pen target device and mount point.
 target_device=/dev/sdg
@@ -65,7 +67,7 @@ parted $target_device print
 # Disk /dev/sdg: 15,6GB
 # Sector size (logical/physical): 512B/512B
 # Partition Table: msdos
-# Disk Flags: 
+# Disk Flags:
 
 # Number  Start   End     Size    Type     File system  Flags
 #  1      4194kB  99,6MB  95,4MB  primary               lba
@@ -74,8 +76,8 @@ mkfs -t vfat -n ODYSSEYFW ${target_device}1
 # install the firmware in the targe device.
 mkdir -p $target
 mount ${target_device}1 $target
-unzip SD-BS-CJ41G-300-101-H.zip -d $target
-unzip SD-EC-CJ41G-M-101-Q.zip -d $target
+unzip SD-BS-CJ41G-300-101-K.zip -d $target
+unzip SD-EC-CJ41G-M-101-R.zip -d $target
 
 # check the results.
 find $target
@@ -88,4 +90,17 @@ eject $target_device
 exit
 ```
 
-You can now use the usb flash device to [install the BIOS firmware](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-upgrade-the-bios) and then [install the EC firmware](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Installing-OS/#how-to-update-the-embedded-controller).
+You can now use the usb flash device to [install the BIOS firmware](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Updating-Firmware/#how-to-upgrade-the-bios) and then [install the EC firmware](https://wiki.seeedstudio.com/ODYSSEY-X86J4105-Updating-Firmware/#how-to-update-the-embedded-controller).
+
+Once in the UEFI shell, the general installation gist is:
+
+```
+map
+fs1:
+dir
+cd SD-BS-CJ41G-300-101-K\SD-BS-CJ41G-300-101-K
+dir
+type BIOS.nsh
+edit BIOS.nsh
+BIOS.nsh
+```
